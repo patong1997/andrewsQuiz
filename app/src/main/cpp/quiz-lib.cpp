@@ -6,7 +6,7 @@
  * Creates the cpp quiz object and returns it as a memory address
  * for our java wrapper.
  */
-JNIEXPORT jlong JNICALL Java_Quiz_createQuiz
+ JNIEXPORT extern "C" jlong JNICALL Java_com_example_cppquiz_Quiz_createQuiz
                 (
                 JNIEnv*   p_jenv
                 , jobject   p_jthis
@@ -20,7 +20,7 @@ JNIEXPORT jlong JNICALL Java_Quiz_createQuiz
  * Invokes the destructor for our quiz to destroy all dynamically
  * allocated memory.
  */
-JNIEXPORT void JNICALL Java_Quiz_destroyNativeInstance
+JNIEXPORT extern "C" void JNICALL Java_com_example_cppquiz_Quiz_destroyNativeInstance
                 (
                   JNIEnv*   p_jenv
                 , jobject   p_jthis
@@ -35,7 +35,7 @@ JNIEXPORT void JNICALL Java_Quiz_destroyNativeInstance
  * Retrieves the quiz's next question as a pointer to set our java wrapper's
  * question pointer.
  */
-JNIEXPORT jlong JNICALL Java_Quiz_getNextQuestion
+JNIEXPORT extern "C" jlong JNICALL Java_com_example_cppquiz_Quiz_getNextQuestion
         (       JNIEnv*   p_jenv
                 , jobject   p_jthis
                 , jlong     p_native_ptr
@@ -49,7 +49,7 @@ JNIEXPORT jlong JNICALL Java_Quiz_getNextQuestion
 /**
  * Retrieves the current question's text
  */
-JNIEXPORT jstring JNICALL Java_Quiz_getQuestionText
+JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getQuestionText
         ( JNIEnv*   p_jenv
                 , jobject   p_jthis
                 , jlong     p_native_ptr
@@ -59,7 +59,7 @@ JNIEXPORT jstring JNICALL Java_Quiz_getQuestionText
     return p_jenv->NewStringUTF(ourQuestion->getQuestion().c_str());
 }
 
-JNIEXPORT jstring JNICALL Java_Quiz_getOptionOne
+JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getOptionOne
   ( JNIEnv*   p_jenv
     , jobject   p_jthis
     , jlong     p_native_ptr
@@ -71,7 +71,7 @@ JNIEXPORT jstring JNICALL Java_Quiz_getOptionOne
   return p_jenv->NewStringUTF(optionText.c_str());
 }
 
-JNIEXPORT jstring JNICALL Java_Quiz_getOptionTwo
+JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getOptionTwo
   ( JNIEnv*   p_jenv
     , jobject   p_jthis
     , jlong     p_native_ptr
@@ -83,7 +83,7 @@ JNIEXPORT jstring JNICALL Java_Quiz_getOptionTwo
   return p_jenv->NewStringUTF(optionText.c_str());
 }
 
-JNIEXPORT jstring JNICALL Java_Quiz_getOptionThree
+JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getOptionThree
   ( JNIEnv*   p_jenv
     , jobject   p_jthis
     , jlong     p_native_ptr
@@ -95,7 +95,7 @@ JNIEXPORT jstring JNICALL Java_Quiz_getOptionThree
   return p_jenv->NewStringUTF(optionText.c_str());
 }
 
-JNIEXPORT jstring JNICALL Java_Quiz_getOptionFour
+JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getOptionFour
   ( JNIEnv*   p_jenv
     , jobject   p_jthis
     , jlong     p_native_ptr
@@ -107,7 +107,7 @@ JNIEXPORT jstring JNICALL Java_Quiz_getOptionFour
   return p_jenv->NewStringUTF(optionText.c_str());
 }
 
-JNIEXPORT jchar JNICALL Java_Quiz_getCorrectOption
+JNIEXPORT extern "C" jchar JNICALL Java_com_example_cppquiz_Quiz_getCorrectOption
   ( JNIEnv* p_jenv
     , jobject p_jthis
     , jlong p_native_ptr
@@ -117,7 +117,7 @@ JNIEXPORT jchar JNICALL Java_Quiz_getCorrectOption
   return (jchar) ourQuestion->getCorrectLetter();
 }
 
-JNIEXPORT jint JNICALL Java_Quiz_getQuizSize
+JNIEXPORT extern "C" jint JNICALL Java_com_example_cppquiz_Quiz_getQuizSize
   ( JNIEnv* p_jenv
     , jobject p_jthis
     , jlong p_native_ptr

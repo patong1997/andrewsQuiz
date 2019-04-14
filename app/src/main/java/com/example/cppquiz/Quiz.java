@@ -44,30 +44,28 @@ public class Quiz {
     setCorrectOption();
   }
 
-  public void setQuizSize(){
+  private void setQuizSize(){
     quizSize = getQuizSize( quizPtr );
   }
-
-  public void setNextQuestion(){
+  private void setNextQuestion(){
     currentQuestionPtr = getNextQuestion( this.quizPtr );
   }
-
-  public void setQuestionText(){
+  private void setQuestionText(){
     currentQuestion = getQuestionText( currentQuestionPtr );
   }
-  public void setOptionOne(){
+  private void setOptionOne(){
     optionOne = getOptionOne( currentQuestionPtr );
   }
-  public void setOptionTwo(){
+  private void setOptionTwo(){
     optionTwo = getOptionTwo( currentQuestionPtr );
   }
-  public void setOptionThree(){
+  private void setOptionThree(){
     optionThree = getOptionThree( currentQuestionPtr );
   }
-  public void setOptionFour(){
+  private void setOptionFour(){
     optionFour = getOptionFour( currentQuestionPtr );
   }
-  public void setCorrectOption(){
+  private void setCorrectOption(){
     correctOption = getCorrectOption(currentQuestionPtr);
   }
 
