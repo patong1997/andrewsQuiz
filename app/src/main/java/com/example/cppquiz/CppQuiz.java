@@ -6,24 +6,25 @@ import android.widget.TextView;
 
 public class CppQuiz extends AppCompatActivity {
 
-    long ourQuiz;
+  long ourQuiz;
 
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("quiz-lib");
-    }
+  // Used to load the 'native-lib' library on application startup.
+  static {
+    System.loadLibrary("quiz-lib");
+  }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
 
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
 
-        // Example of a call to a native method
-        TextView tv = findViewById(R.id.sample_text);
-        tv.setText("filler text");
-    }
+    // Example of a call to a native method
+    TextView tv = findViewById(R.id.sample_text);
+    tv.setText("filler text");
 
-    //public native long createQuiz();
+    Quiz newQuiz = new Quiz();
+  }
+
 }

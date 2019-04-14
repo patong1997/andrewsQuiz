@@ -1,5 +1,7 @@
+package com.example.cppquiz;
+
 /**
- * Wrapper for our c++ Quiz class
+ * Wrapper for our c++ com.example.cppquiz.CppQuiz.Quiz class
  */
 public class Quiz {
 
@@ -29,6 +31,9 @@ public class Quiz {
     setQuizSize();
   }
 
+  /**
+   * Advances to the next question in the quiz
+   */
   public void moveToNextQuestion(){
     setNextQuestion();
     setQuestionText();
