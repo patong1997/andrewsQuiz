@@ -14,8 +14,6 @@ public:
   string theOption;
   char letter;
   Option( string theOption, char letter );
-  Option();
-  string getOption();
 };
 
 class Question{

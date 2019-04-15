@@ -25,6 +25,8 @@ public class CppQuiz extends AppCompatActivity {
 
     Quiz newQuiz = new Quiz();
 
+
+
   }
 
 }
