@@ -39,7 +39,6 @@ public:
     int size;
     Quiz();
     ~Quiz();
-    void addQuestion( Question * question );
     Question * getNextQuestion();
 };
 

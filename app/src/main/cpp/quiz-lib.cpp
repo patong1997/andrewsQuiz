@@ -67,7 +67,7 @@ JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getOptionOne
 {
   Question * ourQuestion = (Question*) p_native_ptr;
   Option * option = ourQuestion->getOptions()->at(0);
-  string optionText = option->letter + ": " + option->theOption;
+  string optionText = string(1,option->letter) + ": " + option->theOption;
   return p_jenv->NewStringUTF(optionText.c_str());
 }
 
@@ -79,7 +79,7 @@ JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getOptionTwo
 {
   Question * ourQuestion = (Question*) p_native_ptr;
   Option * option = ourQuestion->getOptions()->at(1);
-  string optionText = option->letter + ": " + option->theOption;
+  string optionText = string(1,option->letter) + ": " + option->theOption;
   return p_jenv->NewStringUTF(optionText.c_str());
 }
 
@@ -91,7 +91,7 @@ JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getOptionThre
 {
   Question * ourQuestion = (Question*) p_native_ptr;
   Option * option = ourQuestion->getOptions()->at(2);
-  string optionText = option->letter + ": " + option->theOption;
+  string optionText = string(1,option->letter) + ": " + option->theOption;
   return p_jenv->NewStringUTF(optionText.c_str());
 }
 
@@ -103,7 +103,7 @@ JNIEXPORT extern "C" jstring JNICALL Java_com_example_cppquiz_Quiz_getOptionFour
 {
   Question * ourQuestion = (Question*) p_native_ptr;
   Option * option = ourQuestion->getOptions()->at(3);
-  string optionText = option->letter + ": " + option->theOption;
+  string optionText = string(1,option->letter) + ": " + option->theOption;
   return p_jenv->NewStringUTF(optionText.c_str());
 }
 

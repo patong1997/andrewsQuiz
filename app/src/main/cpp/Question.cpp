@@ -36,61 +36,71 @@ char Question::getCorrectLetter(){
 Question* Quiz::getNextQuestion(){
   if ( index != questions->size() ){
     index++;
-    return questions->at(index);
+    return questions->at(index-1);
   }
 }
 
-void Quiz::addQuestion( Question * question ){
-  questions->push_back(question);
-}
-
+/**
+ * TODO: Change to load in quiz from a file.
+ */
 Quiz::Quiz(){
 
   questions = new vector<Question*>();
 
-  Option * quesOneOpOne = new Option( "2", 'A' );
-  Option * quesOneOpTwo = new Option( "3", 'B' );
-  Option * quesOneOpThree = new Option( "4", 'C' );
-  Option * quesOneOpFour = new Option( "5", 'D' );
+  Option * quesOneOpOne = new Option( "A Little", 'A' );
+  Option * quesOneOpTwo = new Option( "Not At All", 'B' );
+  Option * quesOneOpThree = new Option( "Very", 'C' );
+  Option * quesOneOpFour = new Option( "Who?", 'D' );
   vector<Option*> * quesOneOptions = new vector<Option*>();
   quesOneOptions->push_back(quesOneOpOne);
   quesOneOptions->push_back(quesOneOpTwo);
   quesOneOptions->push_back(quesOneOpThree);
   quesOneOptions->push_back(quesOneOpFour);
-  Question * firstQuestion = new Question( "1+1", quesOneOptions, 'A');
+  Question * firstQuestion = new Question( "How cool is Andrew?", quesOneOptions, 'C');
 
-  Option * quesTwoOpOne = new Option( "2", 'A' );
-  Option * quesTwoOpTwo = new Option( "3", 'B' );
-  Option * quesTwoOpThree = new Option( "4", 'C' );
-  Option * quesTwoOpFour = new Option( "5", 'D' );
+  Option * quesTwoOpOne = new Option( "21", 'A' );
+  Option * quesTwoOpTwo = new Option( "22", 'B' );
+  Option * quesTwoOpThree = new Option( "23", 'C' );
+  Option * quesTwoOpFour = new Option( "50", 'D' );
   vector<Option*> * quesTwoOptions = new vector<Option*>();
   quesTwoOptions->push_back(quesTwoOpOne);
   quesTwoOptions->push_back(quesTwoOpTwo);
   quesTwoOptions->push_back(quesTwoOpThree);
   quesTwoOptions->push_back(quesTwoOpFour);
-  Question * secondQuestion = new Question( "1+2", quesTwoOptions, 'B');
+  Question * secondQuestion = new Question( "How old is Andrew?", quesTwoOptions, 'B');
 
-  Option * quesThreeOpOne = new Option( "2", 'A' );
-  Option * quesThreeOpTwo = new Option( "3", 'B' );
-  Option * quesThreeOpThree = new Option( "4", 'C' );
-  Option * quesThreeOpFour = new Option( "5", 'D' );
+  Option * quesThreeOpOne = new Option( "Nobody", 'A' );
+  Option * quesThreeOpTwo = new Option( "Bill Gates", 'B' );
+  Option * quesThreeOpThree = new Option( "Some Asshole", 'C' );
+  Option * quesThreeOpFour = new Option( "A Talking Elephant", 'D' );
   vector<Option*> * quesThreeOptions = new vector<Option*>();
   quesThreeOptions->push_back(quesThreeOpOne);
   quesThreeOptions->push_back(quesThreeOpTwo);
   quesThreeOptions->push_back(quesThreeOpThree);
   quesThreeOptions->push_back(quesThreeOpFour);
-  Question * thirdQuestion = new Question( "2+2", quesThreeOptions, 'C');
+  Question * thirdQuestion = new Question( "Who created this quiz?", quesThreeOptions, 'C');
 
-  Option * quesFourOpOne = new Option( "2", 'A' );
-  Option * quesFourOpTwo = new Option( "3", 'B' );
-  Option * quesFourOpThree = new Option( "4", 'C' );
-  Option * quesFourOpFour = new Option( "5", 'D' );
+  Option * quesFourOpOne = new Option( "7", 'A' );
+  Option * quesFourOpTwo = new Option( "4", 'B' );
+  Option * quesFourOpThree = new Option( "9", 'C' );
+  Option * quesFourOpFour = new Option( "10000", 'D' );
   vector<Option*> * quesFourOptions = new vector<Option*>();
   quesFourOptions->push_back(quesFourOpOne);
   quesFourOptions->push_back(quesFourOpTwo);
   quesFourOptions->push_back(quesFourOpThree);
   quesFourOptions->push_back(quesFourOpFour);
-  Question * fourthQuestion = new Question( "2+3", quesFourOptions, 'D');
+  Question * fourthQuestion = new Question( "What would you rate Andrew from 1-10?", quesFourOptions, 'D');
+
+  Option * quesFiveOpOne = new Option( "Absolutely", 'A' );
+  Option * quesFiveOpTwo = new Option( "I've used better", 'B' );
+  Option * quesFiveOpThree = new Option( "Unfortunately", 'C' );
+  Option * quesFiveOpFour = new Option( "This is trash", 'D' );
+  vector<Option*> * quesFiveOptions = new vector<Option*>();
+  quesFiveOptions->push_back(quesFiveOpOne);
+  quesFiveOptions->push_back(quesFiveOpTwo);
+  quesFiveOptions->push_back(quesFiveOpThree);
+  quesFiveOptions->push_back(quesFiveOpFour);
+  Question * fifthQuestion = new Question( "Is this the greatest app you've ever used?", quesFiveOptions, 'A');
 
   index = 0;
 
@@ -98,6 +108,7 @@ Quiz::Quiz(){
   questions->push_back(secondQuestion);
   questions->push_back(thirdQuestion);
   questions->push_back(fourthQuestion);
+  questions->push_back(fifthQuestion);
 
   size = questions->size();
 

@@ -8,12 +8,13 @@ public class Quiz {
   private long quizPtr = 0;
   private long currentQuestionPtr;
   int quizSize = 0;
-  private String currentQuestion;
-  private String optionOne;
-  private String optionTwo;
-  private String optionThree;
-  private String optionFour;
-  private char correctOption;
+  String currentQuestion;
+  String optionOne;
+  String optionTwo;
+  String optionThree;
+  String optionFour;
+  char correctOption;
+  int score = 0;
 
   private native long createQuiz( /* params */ );
   private native long getNextQuestion( long nativePtr );
@@ -74,20 +75,29 @@ public class Quiz {
   }
 
   /**
-   * Formats our question and its options into a string for output
-   */
-  public String questionText(){
-    return currentQuestion + "\n" + optionOne + "\n" + optionTwo + "\n" + optionThree + "\n"
-      + optionFour + "\n";
-  }
-
-  /**
    * Checks if the chosen option is correct
    */
-  public Boolean isCorrect( char chosenOption ){
+  public Boolean checkAnswer( char chosenOption ){
     if ( chosenOption == correctOption ){
+      score++;
       return true;
     } else return false;
+  }
+
+  public String getResults(){
+
+    String resultString = "You got " + Integer.toString(score) + " / " + quizSize + " .\n";
+    if ( score == quizSize ){
+      resultString = resultString + " GOOD SHIT ";
+    } else if (score > (quizSize - 1) ){
+      resultString = "GOOD";
+    } else if ( score > (quizSize - 2) ){
+      resultString = resultString + " You aight ";
+    } else {
+      resultString = resultString + " ehhhh....... ";
+    }
+
+    return resultString;
   }
 
 }
