@@ -102,6 +102,16 @@ Quiz::Quiz(){
   quesFiveOptions->push_back(quesFiveOpFour);
   Question * fifthQuestion = new Question( "Is this the greatest app you've ever used?", quesFiveOptions, 'A');
 
+  Option * quesSixOpOne = new Option( "No", 'A');
+  Option * quesSixOpOne = new Option( "No", 'B');
+  Option * quesSixOpOne = new Option( "No", 'C');
+  Option * quesSixOpOne = new Option( "Absolutely no", 'D');
+  vector<Option*> * quesSixOptions = new vector<Option*>();
+  quesSixOptions->push_back(quesSixOpOne);
+  quesSixOptions->push_back(quesSixOpTwo);
+  quesSixOptions->push_back(quesSixOpThree);
+  quesSixOptions->push_back(quesSixOpFour);
+  Question * sixthQuestion = new Question("If the average volume of the penis is 2.53% relative to the body, does it make it gay on girls?", quesSixOptions, 'D');
   index = 0;
 
   questions->push_back(firstQuestion);
@@ -109,7 +119,7 @@ Quiz::Quiz(){
   questions->push_back(thirdQuestion);
   questions->push_back(fourthQuestion);
   questions->push_back(fifthQuestion);
-
+  questions->push_back(sixthQuestion);
   size = questions->size();
 
 }
